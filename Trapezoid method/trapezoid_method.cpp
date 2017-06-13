@@ -2,11 +2,6 @@
 #include <stdexcept>
 #include <iostream>
 
-static double mod(double x)
-{
-	return x > 0.0? x: -x;
-}
-
 double Integral::trapesiod_method(double (*integrand)(double), double a, double b, unsigned int n)
 {
 	if (n == 0)
