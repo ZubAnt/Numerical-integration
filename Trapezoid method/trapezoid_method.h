@@ -3,7 +3,11 @@
 
 namespace Integral
 {
-	double trapesiod_method(double (*func)(double), double a, double b, unsigned int n);
+	// integrand - подынтегральное выражение
+	// a - начло интегрирования
+	// b - конец интегрирования
+	// n - количество разбиений отрезка
+	double trapesiod_method(double (*integrand)(double), double a, double b, unsigned int n);
 }
 
 namespace Square
