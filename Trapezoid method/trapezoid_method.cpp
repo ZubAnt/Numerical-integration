@@ -23,8 +23,8 @@ double Integral::trapesiod_method(double (*integrand)(double), double a, double 
 
 	for (double i = a + step; i <= b; i += step)
 	{
-		double a = mod(integrand(i - step));
-		double b = mod(integrand(i));
+		double a = integrand(i - step);
+		double b = integrand(i);
 		double h = step;
 
 		summ += Square::trapezium(a, b, h);
@@ -36,11 +36,9 @@ double Integral::trapesiod_method(double (*integrand)(double), double a, double 
 
 double Square::trapezium(double a, double b, double h)
 {
-	if (a < 0.0 || b < 0.0 || h < 0.0)
+	if (h < 0.0)
 	{
-		std::cout << "[" << __FILE__ << " " << __LINE__ << "]" << std::endl
-				  << " a = " << a << "; b = " << b << " ; h = " << h << std::endl;
-		throw std::invalid_argument("argument must be positive");
+		throw std::invalid_argument("h must be positive");
 	}
 
 	return (a + b) * h / 2; // Площадь трапеции
